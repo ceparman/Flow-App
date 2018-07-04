@@ -23,7 +23,10 @@ server <- function(input, output) {
    
    output$message <- renderText("Not installed yet")
    
-  
+   session$onSessionEnded(function() {
+     stopApp()
+   })
+   
 }
 
 # Run the application 
