@@ -28,7 +28,7 @@ shinyServer(function(input, output, session) {
   # 
   observeEvent(input$run,{
     
-    if (is.null( input$gfp_file) )
+    if (is.null( input$input_file) )
     {
     
       return()
@@ -43,11 +43,11 @@ shinyServer(function(input, output, session) {
       
     setwd(path.expand("~"))  
       
-    suppressWarnings( main_script(input$gfp_file$datapath,input$total_file$datapath,
+    suppressWarnings( main_flow_script(input$input_file$datapath,
                 input$map_file$datapath,getwd())
     )
       
-      zip::zip("results.zip","ImageAppoutput",recurse = TRUE)
+      zip::zip("results.zip","FlowAppoutput",recurse = TRUE)
     
       output$status <- renderText("Analysis Completed")
     }

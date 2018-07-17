@@ -25,15 +25,12 @@ shinyUI(fluidPage(
       
       tags$hr(),
       
-      fileInput("gfp_file", 'Choose GFP+ Data File',        #small File
+      fileInput("input_file", 'Choose Data File',     
                 accept=c('text/csv', 
                          'text/comma-separated-values,text/plain', 
                          '.csv','application/zip')),
             
-     fileInput("total_file", 'Choose Total Area Data File',        #large file
-               accept=c('text/csv', 
-                        'text/comma-separated-values,text/plain', 
-                         '.csv','application/zip')),
+
                         
     fileInput("map_file", 'Choose Plate Map File',
               accept=c('text/csv', 

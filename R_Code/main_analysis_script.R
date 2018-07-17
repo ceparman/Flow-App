@@ -5,6 +5,7 @@ main_flow_script <- function(inFile,plate_map_file,filePath)
 
 ### create directory if it does not exist
   
+
 filePath <- paste0(filePath,"/FlowAppoutput")  
   
   if(!dir.exists(filePath)) dir.create(filePath)   
@@ -15,18 +16,6 @@ plate <- makePlate()
 plate_map <- parse_plate_map2(plate_map_file )
 
 all_data <- processFlowFile(inFile,plate)
-
-
-#data1 <- processReaderFile(gfp_file,plate) 
-#data2 <- processReaderFile(total_file,plate) 
-
-#Combine data
-
-
-#all_data <- data.frame(Well=data1$Well,gfp_area=data1$`Total Area`,gfp_count=data1$`Total Count`,
-#                      allcells_area=data2$`Total Area`,allcells_count=data2$`Total Count`,
-#                       percent = 100*data1$`Total Area`/ data2$`Total Area`)
-
 
 
 ### Write output

@@ -48,12 +48,14 @@ bar_data <- bar_data %>% mutate( mean_percent = ifelse ( target == "Total GFP+ A
                                                          paste(as.character(round(mean_percent,1)),"%"),
                                                          ""))
 
+bar_data$target <- str_replace(bar_data$target,"Area", "Count")
+
 
 options(scipen=10000)
 
-#bardata <- bar_data[order(bar_data$target),]
 
-bp<- ggplot(bar_data ,aes(fill= factor(target, levels=c("Total GFP+ Area", "Total Cell Area")),y=mean,x=reorder(x_label,plotorder))) +
+
+bp<- ggplot(bar_data ,aes(fill= factor(target, levels=c("Total GFP+ Count", "Total Cell Count")),y=mean,x=reorder(x_label,plotorder))) +
   
   
   geom_errorbar(aes(ymin=mean-std,ymax=mean+std),  width=0.25,position = position_dodge(.9)) +
@@ -62,8 +64,8 @@ bp<- ggplot(bar_data ,aes(fill= factor(target, levels=c("Total GFP+ Area", "Tota
   
   scale_fill_manual(values=rep(c("green","red"),nrow(bar_data)/2))+
   
-  scale_y_continuous(sec.axis = sec_axis(~.*(1/ratio),name = "Total Cell Area")) +
-  labs(y= "Total GFP(+) Cell Area", x="") +
+  scale_y_continuous(sec.axis = sec_axis(~.*(1/ratio),name = "Total Cell Count")) +
+  labs(y= "Total GFP(+) Cell Count", x="") +
   
   ggtitle(title) +
   
