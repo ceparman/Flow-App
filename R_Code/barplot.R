@@ -78,9 +78,12 @@ bp<- ggplot(bar_data ,aes(fill= factor(target, levels=c("Total GFP+ Count", "Tot
   
   theme_classic()+
   
-  theme(axis.text.x = element_text(angle = 90, hjust = 1), legend.position = "top",legend.title=element_blank()) +
-  theme(axis.title.y = element_text(colour = "green"), axis.title.y.right = element_text(color = "red")) +
-  theme(axis.title.y.right = element_text(angle = 270)) 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1,size=16), legend.position = "top",legend.title=element_blank()) +
+  theme(legend.text = element_text(size= 14)) +
+  theme(axis.text.y = element_text(size =16))+
+  theme(axis.text.y.right = element_text(size =16))+
+  theme(axis.title.y = element_text(colour = "green",size=14), axis.title.y.right = element_text(color = "red")) +
+  theme(axis.title.y.right = element_text(angle = 270, size=14)) 
 
 bp
 
