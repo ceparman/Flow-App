@@ -39,10 +39,13 @@ shinyServer(function(input, output, session) {
     
     #process data
     
-      output$status <- renderText("Processing Date")
+      output$status <- renderText("Processing Data")
       
     setwd(path.expand("~"))  
       
+    unlink( paste0(getwd(),"/FlowAppoutput"),recursive = T)
+    
+    
     suppressWarnings( main_flow_script(input$input_file$datapath,
                 input$map_file$datapath,getwd())
     )
